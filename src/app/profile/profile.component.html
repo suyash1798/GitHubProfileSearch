@@ -1,0 +1,31 @@
+<div class="container data-container">
+  <div class="container">
+    <input type="text" (keyup)="search_profile($event)" class="form-control border-dark" placeholder="Search Profile With Username">
+  </div>
+  <div class="row">
+    <div class="col-4 user-info">
+      <div class="image-container">
+        <img *ngIf="'profile.avatar_url'" src="{{profile.avatar_url}}" class="image">
+        <div *ngIf="!'profile.avatar_url'" class="image"></div>
+      </div>
+      <div>
+        <p class="font-weight-bold">Company: <span class="font-italic font-weight-normal" *ngIf="profile">{{profile.company}}</span></p>
+        <p class="font-weight-bold">BIO: <span class="font-italic font-weight-normal"*ngIf="profile">{{profile.bio}}</span></p>
+        <p class="font-weight-bold">Location: <span class="font-italic font-weight-normal"*ngIf="profile">{{profile.location}}</span></p>
+        <p class="font-weight-bold">BLOG: <span class="font-italic font-weight-normal"*ngIf="profile">{{profile.blog}}</span></p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div *ngIf="repository">
+        <div *ngFor="let repo of repository">
+          <div class="repo-container">
+            <p class="font-weight-bold">{{ repo.name }}</p>
+            <p class="font-weight-normal font-italic mt-3">{{ repo.description }}</p>
+            <p class="font-italic mt-5">{{ repo.language }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
